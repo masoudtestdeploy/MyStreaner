@@ -12,7 +12,7 @@ from pyrogram import filters, Client
 from pyrogram.errors import FloodWait, UserNotParticipant
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.enums.parse_mode import ParseMode
-db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
+#db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 
 
 def get_media_file_size(m):
@@ -33,12 +33,12 @@ def get_media_file_name(m):
 
 @StreamBot.on_message(filters.private & (filters.document | filters.video | filters.audio), group=4)
 async def private_receive_handler(c: Client, m: Message):
-    if not await db.is_user_exist(m.from_user.id):
-        await db.add_user(m.from_user.id)
-        await c.send_message(
-            Var.BIN_CHANNEL,
-            f"Nᴇᴡ Usᴇʀ Jᴏɪɴᴇᴅ : \n\nNᴀᴍᴇ : [{m.from_user.first_name}](tg://user?id={m.from_user.id}) Sᴛᴀʀᴛᴇᴅ Yᴏᴜʀ Bᴏᴛ !!"
-        )
+    #if not await db.is_user_exist(m.from_user.id):
+        #await db.add_user(m.from_user.id)
+        #await c.send_message(
+        #    Var.BIN_CHANNEL,
+        #    f"Nᴇᴡ Usᴇʀ Jᴏɪɴᴇᴅ : \n\nNᴀᴍᴇ : [{m.from_user.first_name}](tg://user?id={m.from_user.id}) Sᴛᴀʀᴛᴇᴅ Yᴏᴜʀ Bᴏᴛ !!"
+       # )
     if Var.UPDATES_CHANNEL != "None":
         try:
             user = await c.get_chat_member(Var.UPDATES_CHANNEL, m.chat.id)
