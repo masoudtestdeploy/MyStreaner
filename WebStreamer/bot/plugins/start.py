@@ -8,7 +8,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import UserNotParticipant
 from pyrogram.enums.parse_mode import ParseMode
 
-db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
+#db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 
 START_TEXT = """
 <i>👋 Hᴇʏ,</i>{}\n
@@ -98,12 +98,12 @@ def get_media_file_name(m):
 
 @StreamBot.on_message(filters.command('start') & filters.private)
 async def start(b, m):
-    if not await db.is_user_exist(m.from_user.id):
-        await db.add_user(m.from_user.id)
-        await b.send_message(
-            Var.BIN_CHANNEL,
-            f"**Nᴇᴡ Usᴇʀ Jᴏɪɴᴇᴅ:** \n\n__Mʏ Nᴇᴡ Fʀɪᴇɴᴅ__ [{m.from_user.first_name}](tg://user?id={m.from_user.id}) __Sᴛᴀʀᴛᴇᴅ Yᴏᴜʀ Bᴏᴛ !!__"
-        )
+   # if not await db.is_user_exist(m.from_user.id):
+     #   await db.add_user(m.from_user.id)
+     #   await b.send_message(
+       #     Var.BIN_CHANNEL,
+       #     f"**Nᴇᴡ Usᴇʀ Jᴏɪɴᴇᴅ:** \n\n__Mʏ Nᴇᴡ Fʀɪᴇɴᴅ__ [{m.from_user.first_name}](tg://user?id={m.from_user.id}) __Sᴛᴀʀᴛᴇᴅ Yᴏᴜʀ Bᴏᴛ !!__"
+       # )
     usr_cmd = m.text.split("_")[-1]
     if usr_cmd == "/start":
         if Var.UPDATES_CHANNEL != "None":
@@ -216,12 +216,12 @@ async def start(bot, update):
 
 @StreamBot.on_message(filters.command('help') & filters.private)
 async def help_handler(bot, message):
-    if not await db.is_user_exist(message.from_user.id):
-        await db.add_user(message.from_user.id)
-        await bot.send_message(
-            Var.BIN_CHANNEL,
-            f"**Nᴇᴡ Usᴇʀ Jᴏɪɴᴇᴅ **\n\n__Mʏ Nᴇᴡ Fʀɪᴇɴᴅ__ [{message.from_user.first_name}](tg://user?id={message.from_user.id}) __Started Your Bot !!__"
-        )
+    #if not await db.is_user_exist(message.from_user.id):
+    #    await db.add_user(message.from_user.id)
+     ##   await bot.send_message(
+       #     Var.BIN_CHANNEL,
+      #      f"**Nᴇᴡ Usᴇʀ Jᴏɪɴᴇᴅ **\n\n__Mʏ Nᴇᴡ Fʀɪᴇɴᴅ__ [{message.from_user.first_name}](tg://user?id={message.from_user.id}) __Started Your Bot !!__"
+       # )
     if Var.UPDATES_CHANNEL is not None:
         try:
             user = await bot.get_chat_member(Var.UPDATES_CHANNEL, message.chat.id)
