@@ -1,5 +1,5 @@
 
-
+"""
 import datetime
 import motor.motor_asyncio
 
@@ -34,3 +34,4 @@ class Database:
 
     async def delete_user(self, user_id):
         await self.col.delete_many({'id': int(user_id)})
+"""
