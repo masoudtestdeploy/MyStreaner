@@ -5,7 +5,7 @@
 import asyncio
 import urllib.parse
 from WebStreamer.bot import StreamBot
-from WebStreamer.utils.database import Database
+#from WebStreamer.utils.database import Database
 from WebStreamer.utils.human_readable import humanbytes
 from WebStreamer.vars import Var
 from pyrogram import filters, Client
