@@ -8,7 +8,7 @@ import asyncio
 import aiofiles
 import datetime
 from WebStreamer.utils.broadcast_helper import send_msg
-from WebStreamer.utils.database import Database
+#from WebStreamer.utils.database import Database
 from WebStreamer.bot import StreamBot
 from WebStreamer.vars import Var
 from pyrogram import filters, Client
@@ -17,7 +17,7 @@ from pyrogram.enums.parse_mode import ParseMode
 #db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 broadcast_ids = {}
 
-
+"""
 @StreamBot.on_message(filters.command("status") & filters.private & filters.user(Var.OWNER_ID))
 async def sts(c: Client, m: Message):
     #total_users = await db.total_users_count()
@@ -88,3 +88,4 @@ async def broadcast_(c, m):
             quote=True
         )
     os.remove('broadcast.txt')
+"""
